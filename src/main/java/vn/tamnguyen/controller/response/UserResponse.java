@@ -1,19 +1,22 @@
 package vn.tamnguyen.controller.response;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+import vn.tamnguyen.common.Gender;
 
 import java.io.Serializable;
 import java.util.Date;
 
 @Getter
 @Setter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class UserResponse implements Serializable {
 
     private Long id;
     private String firstName;
     private String lastName;
-    private String gender;
+    private Gender gender;
     private Date dateOfBirth;
     private String username;
     private String email;

@@ -3,13 +3,14 @@ package vn.tamnguyen.service;
 import vn.tamnguyen.controller.request.UserCreationRequest;
 import vn.tamnguyen.controller.request.UserPasswordRequest;
 import vn.tamnguyen.controller.request.UserUpdateRequest;
+import vn.tamnguyen.controller.response.UserPageResponse;
 import vn.tamnguyen.controller.response.UserResponse;
 
 import java.util.List;
 
 public interface UserService {
 
-    List<UserResponse> findAll();
+    UserPageResponse findAll(String keyword, String sort, int pageNo, int pageSize);
 
     UserResponse findById(Long userId);
 

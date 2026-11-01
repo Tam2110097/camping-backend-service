@@ -4,6 +4,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import vn.tamnguyen.common.Gender;
 import vn.tamnguyen.controller.request.UserCreationRequest;
 import vn.tamnguyen.controller.request.UserPasswordRequest;
 import vn.tamnguyen.controller.request.UserUpdateRequest;
@@ -29,7 +30,7 @@ public class MockupUserController {
         userDetail.setId(1l);
         userDetail.setFirstName("Tam");
         userDetail.setLastName("Nguyen");
-        userDetail.setGender("Male");
+        userDetail.setGender(Gender.MALE);
         userDetail.setDateOfBirth(new Date());
         userDetail.setUsername("admin");
         userDetail.setEmail("admin@gmail.com");
@@ -39,7 +40,7 @@ public class MockupUserController {
         userResponse2.setId(2l);
         userResponse2.setFirstName("Jack");
         userResponse2.setLastName("Jack");
-        userResponse2.setGender("Male");
+        userResponse2.setGender(Gender.MALE);
         userResponse2.setDateOfBirth(new Date());
         userResponse2.setUsername("user");
         userResponse2.setEmail("user@gmail.com");
@@ -63,7 +64,7 @@ public class MockupUserController {
         userDetail.setId(1l);
         userDetail.setFirstName("Tam");
         userDetail.setLastName("Nguyen");
-        userDetail.setGender("Male");
+        userDetail.setGender(Gender.MALE);
         userDetail.setDateOfBirth(new Date());
         userDetail.setUsername("admin");
         userDetail.setEmail("admin@gmail.com");
