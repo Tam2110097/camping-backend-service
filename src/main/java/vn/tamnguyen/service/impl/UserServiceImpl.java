@@ -16,6 +16,7 @@ import vn.tamnguyen.controller.request.UserPasswordRequest;
 import vn.tamnguyen.controller.request.UserUpdateRequest;
 import vn.tamnguyen.controller.response.UserPageResponse;
 import vn.tamnguyen.controller.response.UserResponse;
+import vn.tamnguyen.exception.InvalidDataException;
 import vn.tamnguyen.exception.ResourceNotFoundException;
 import vn.tamnguyen.model.AddressEntity;
 import vn.tamnguyen.model.UserEntity;
@@ -111,6 +112,11 @@ public class UserServiceImpl implements UserService {
     @Transactional(rollbackFor = Exception.class)
     public long save(UserCreationRequest req) {
         log.info("Saving user: {}", req);
+
+        UserEntity userByEmail = userRepository.findByEmail(req.getEmail());
+        if (userByEmail != null) {
+            throw new InvalidDataException("Email already exists");
+        }
 
         UserEntity user = new UserEntity();
         user.setFirstName(req.getFirstName());
