@@ -83,6 +83,13 @@
 			<version>3.2.0</version>
 		</dependency>
 
+		<!-- SENDGRID -->
+		<dependency>
+			<groupId>com.sendgrid</groupId>
+			<artifactId>sendgrid-java</artifactId>
+			<version>4.9.3</version>
+		</dependency>
+
 		<!-- JPA -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
