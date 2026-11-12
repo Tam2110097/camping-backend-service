@@ -2,6 +2,7 @@ package vn.tamnguyen.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Min;
 import lombok.RequiredArgsConstructor;
@@ -17,6 +18,7 @@ import vn.tamnguyen.controller.response.UserPageResponse;
 import vn.tamnguyen.controller.response.UserResponse;
 import vn.tamnguyen.service.UserService;
 
+import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -103,6 +105,20 @@ public class UserController {
         result.put("data", "");
 
         return result;
+    }
+
+    @Operation(summary = "Confirm Email",description = "Confirm user email address using the verification code sent to their email.")
+    @GetMapping("/confirm-email")
+    public void confirmEmail(@RequestParam String secretCode, HttpServletResponse response) throws IOException {
+        log.info("Confirm email: {}", secretCode);
+        try {
+            // TODO check or compare secretCode from database
+            // change user status to ACTIVE
+        } catch (Exception e) {
+            log.error("Confirm email was failure, errorMessage={}", e.getMessage());
+        } finally {
+            response.sendRedirect("https://youtube.com");
+        }
     }
 
     @Operation(summary = "Delete User", description = "API inactivated user from database")
